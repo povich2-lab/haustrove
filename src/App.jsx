@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { Search, Menu, X, ShoppingBag, User, ChevronRight } from "lucide-react";
 
-const categories = ["Homes", "Rooms", "Products", "Outdoor", "Wellness", "Tech", "Materials", "Details"];
+const categories = ["Homes", "Rooms", "Products", "Outdoor", "Wellness", "Tech", "Materials", "Details", "Editors Picks"];
 
 const posts = [
   {
@@ -242,16 +242,16 @@ export default function HausTroveLanding() {
         </div>
       )}
 
-      <main className="mx-auto max-w-[1180px] px-4">
+      <main className="mx-auto max-w-[1240px] px-4 md:px-6">
         <div className="py-4 text-center text-[11px] uppercase tracking-[0.2em] font-black text-[#777] border-b border-[#2c2c2c]">
           Updated Daily / Luxury Residential Finds
         </div>
 
-        <section className="py-8 border-b border-[#2c2c2c]">
+        <section className="py-10 border-b border-[#2c2c2c]">
           <PostCard post={filtered[0] || posts[0]} feature />
         </section>
 
-        <section className="columns-1 md:columns-2 lg:columns-3 gap-8 py-8">
+        <section className="columns-1 md:columns-2 lg:columns-3 gap-10 py-10">
           {filtered.slice(1).map((post) => (
             <PostCard key={post.title} post={post} />
           ))}
@@ -267,10 +267,65 @@ export default function HausTroveLanding() {
         </section>
       </main>
 
+      <section className="border-t border-[#2c2c2c] py-16">
+          <div className="grid gap-8 md:grid-cols-3">
+            <div className="border border-[#2d2d2d] bg-[#171717] p-6 transition hover:border-[#555] hover:bg-[#1b1b1b]">
+              <div className="mb-3 text-[10px] uppercase tracking-[0.24em] font-black text-[#777]">Editors Pick</div>
+              <h3 className="text-[28px] font-black leading-[0.95] tracking-[-0.05em] mb-3">Luxury Wellness Rooms</h3>
+              <p className="text-[14px] leading-7 text-[#9a9a9a]">Steam rooms, cold plunges, infrared saunas, hidden towel warmers, and recovery-focused layouts are becoming core spaces in luxury residential design.</p>
+            </div>
+
+            <div className="border border-[#2d2d2d] bg-[#171717] p-6 transition hover:border-[#555] hover:bg-[#1b1b1b]">
+              <div className="mb-3 text-[10px] uppercase tracking-[0.24em] font-black text-[#777]">Trending</div>
+              <h3 className="text-[28px] font-black leading-[0.95] tracking-[-0.05em] mb-3">Integrated Lighting</h3>
+              <p className="text-[14px] leading-7 text-[#9a9a9a]">Trimless lighting details, shadow reveals, and low-glare architectural fixtures are replacing decorative recessed lighting in premium homes.</p>
+            </div>
+
+            <div className="border border-[#2d2d2d] bg-[#171717] p-6 transition hover:border-[#555] hover:bg-[#1b1b1b]">
+              <div className="mb-3 text-[10px] uppercase tracking-[0.24em] font-black text-[#777]">Featured Material</div>
+              <h3 className="text-[28px] font-black leading-[0.95] tracking-[-0.05em] mb-3">Rammed Earth Walls</h3>
+              <p className="text-[14px] leading-7 text-[#9a9a9a]">Natural texture, thermal mass, and monolithic detailing are bringing rammed earth back into high-end residential architecture.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[#2c2c2c] py-16">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <div className="text-[10px] uppercase tracking-[0.24em] font-black text-[#777] mb-2">Featured Collection</div>
+              <h2 className="text-[44px] md:text-[58px] font-black tracking-[-0.06em] leading-none">Editors' Picks</h2>
+            </div>
+            <button className="hidden md:block text-[11px] uppercase tracking-[0.18em] font-black text-[#888] hover:text-white">View Archive</button>
+          </div>
+
+          <div className="grid gap-8 md:grid-cols-2">
+            <div className="group overflow-hidden border border-[#2d2d2d] bg-[#171717]">
+              <div className="overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1511818966892-d7d671e672a2?auto=format&fit=crop&w=1600&q=90" className="aspect-[1.35/1] w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="text-[10px] uppercase tracking-[0.24em] font-black text-[#777] mb-3">Collection</div>
+                <h3 className="text-[34px] md:text-[44px] font-black tracking-[-0.06em] leading-[0.92] mb-4">The Modern Wellness Home</h3>
+                <p className="text-[15px] leading-7 text-[#9f9f9f]">A curated collection of luxury home wellness spaces including saunas, plunge pools, spa bathrooms, recovery gyms, and resort-inspired interiors.</p>
+              </div>
+            </div>
+
+            <div className="group overflow-hidden border border-[#2d2d2d] bg-[#171717]">
+              <div className="overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=1600&q=90" className="aspect-[1.35/1] w-full object-cover transition duration-700 group-hover:scale-[1.04]" />
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="text-[10px] uppercase tracking-[0.24em] font-black text-[#777] mb-3">Collection</div>
+                <h3 className="text-[34px] md:text-[44px] font-black tracking-[-0.06em] leading-[0.92] mb-4">Minimalist Architectural Kitchens</h3>
+                <p className="text-[15px] leading-7 text-[#9f9f9f]">Integrated appliances, slab stone islands, hidden ventilation, warm wood detailing, and trimless lighting define the next generation of luxury kitchens.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
       <footer className="border-t border-[#2c2c2c] py-8 text-center text-[10px] uppercase tracking-[0.24em] font-black text-[#666]">
         HAUSTROVE / CURATED LUXURY RESIDENTIAL LIVING
       </footer>
     </div>
   );
 }
-
